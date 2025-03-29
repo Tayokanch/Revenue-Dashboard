@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import { Routes, Route } from 'react-router-dom';
 import OverviewPage from './pages/OverviewPage';
+import { CustomProvider } from './Context/CustomContext';
 
 function App() {
   return (
@@ -12,9 +13,11 @@ function App() {
         <div className="absolute inset-0 backdrop-blur-sm" />
       </div>
       <Sidebar />
-      <Routes>
-        <Route path='/' element={<OverviewPage/>}/>
-      </Routes>
+      <CustomProvider>
+        <Routes>
+          <Route path="/" element={<OverviewPage />} />
+        </Routes>
+      </CustomProvider>
     </div>
   );
 }
