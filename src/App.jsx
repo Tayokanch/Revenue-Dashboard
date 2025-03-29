@@ -3,6 +3,7 @@ import Sidebar from './components/Sidebar';
 import { Routes, Route } from 'react-router-dom';
 import OverviewPage from './pages/OverviewPage';
 import { CustomProvider } from './Context/CustomContext';
+import PriceData from './pages/PriceData';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <CustomProvider>
         <Routes>
           <Route path="/" element={<OverviewPage />} />
+          <Route path="/PriceData" element={<PriceData />} />
         </Routes>
       </CustomProvider>
     </div>
