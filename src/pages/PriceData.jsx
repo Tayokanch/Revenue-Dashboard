@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Reuse/Header';
 import { FaEthereum } from 'react-icons/fa';
 import { SiSolana } from 'react-icons/si';
 import { FaBitcoin } from 'react-icons/fa';
 import StatCard from '../components/Reuse/StatCard';
-import { motion } from 'framer-motion';
+import { color, motion } from 'framer-motion';
 import { useCustomContext } from '../Context/CustomContext';
 import PriceDataTable from './PriceDataTable';
-
 const Price = {
   BTC: 84206.27,
   ETH: 1982.79,
   SOL: 1789.79,
 };
 const PriceData = () => {
+    const [searchTerm, setSearchTerm] = useState("");
+
   const { data, loading, error } = useCustomContext();
 
   return (
@@ -43,9 +44,14 @@ const PriceData = () => {
             icon={SiSolana}
             value={`${data?.priceData?.SOL}`}
             color="#00FFA3"
+           
           />
         </motion.div>
-        <PriceDataTable/>
+        <PriceDataTable
+          data={data}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+        />
       </main>
     </div>
   );

@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import OverviewPage from './pages/OverviewPage';
 import { CustomProvider } from './Context/CustomContext';
 import PriceData from './pages/PriceData';
+import Transaction from './pages/Transaction';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<OverviewPage />} />
           <Route path="/PriceData" element={<PriceData />} />
+          <Route path="/Transaction" element={<Transaction />} />
         </Routes>
       </CustomProvider>
     </div>

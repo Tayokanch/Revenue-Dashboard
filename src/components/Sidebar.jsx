@@ -1,5 +1,6 @@
 import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import PaymentIcon from '@mui/icons-material/Payment';
 import { useState } from 'react';
 import {
   BarChart2,
@@ -20,17 +21,25 @@ const SIDEBAR_ITEMS = [
     href: '/',
   },
   {
+    name: 'Price Data',
+    icon: DollarSignIcon,
+    color: '#10b981',
+    href: '/PriceData',
+  },
+  {
+    name: 'Transaction',
+    icon: PaymentIcon,
+    color: '#ec3kjoe9',
+    href: '/Transaction',
+  },
+
+  {
     name: 'Daily Revenue',
     icon: ChartNoAxesCombined,
     color: '#ec4899',
     href: '/DailyRevenue',
   },
-  {
-    name: 'Price Date',
-    icon: DollarSignIcon,
-    color: '#10b981',
-    href: '/PriceData',
-  },
+
   {
     name: 'Platform Balance',
     icon: Landmark,
@@ -66,13 +75,13 @@ const Sidebar = () => {
                   style={{ color: item.color, minWidth: '20px' }}
                 />
                 <AnimatePresence>
-                  {isSadebarOpen &&(
+                  {isSadebarOpen && (
                     <motion.span
                       className="ml-4 whitespace-nowrap"
                       initial={{ opacity: 0, width: 0 }}
-                      animate={{ opacity: 1, width: "auto" }}
+                      animate={{ opacity: 1, width: 'auto' }}
                       exit={{ opacity: 0, width: 0 }}
-                      transition={{duration:0.2, delay:0.3}}
+                      transition={{ duration: 0.2, delay: 0.3 }}
                     >
                       {item.name}
                     </motion.span>
