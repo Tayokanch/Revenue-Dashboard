@@ -54,7 +54,6 @@ const PriceData = () => {
           setSearchTerm={setSearchTerm}
         />
       </main>
-      <Form/>
     </div>
   );
 };

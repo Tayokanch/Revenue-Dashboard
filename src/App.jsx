@@ -6,6 +6,7 @@ import { CustomProvider } from './Context/CustomContext';
 import PriceData from './pages/PriceData';
 import BillsRevenue from './pages/BillsRevenue';
 import Asset from './pages/AssetRevenue';
+import PlatformBlance from './pages/PlatformBlance';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
           <Route path="/PriceData" element={<PriceData />} />
           <Route path="/Billpayment" element={<BillsRevenue />} />
           <Route path="/Asset&Revenue" element={<Asset />} />
-
+          <Route path="/PlatformBalance" element={<PlatformBlance />} />
         </Routes>
       </CustomProvider>
     </div>

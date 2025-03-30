@@ -1,21 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
+import CloseIcon from '@mui/icons-material/Close';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import { motion } from 'framer-motion';
 const Form = () => {
-  const [formData, setFormData] = useState("");
+  const [formData, setFormData] = useState('');
 
-  const handleInputChange = (e) => {
-    const inputValue = e.target.value;
-    setFormData(inputValue);
-  };
+  const encode = (data) => btoa(JSON.stringify(data));
+  const decode = (token) => JSON.parse(atob(token));
+  const payload = { role: 'CEO', email: 'FIATURE.CEO.co.uk' };
+  const token = encode(payload);
+  const [message, setMessage] = useState();
+
+  useEffect(() => {
+    console.log('This is token', token);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted with:', formData);
+
+    if (formData.trim() === token) {
+      setMessage({ message: ' Access granted!', status: true });
+      console.log('Successful login:', decode(token));
+    } else {
+      setMessage({
+        message: ' Invalid token or Expired Token',
+        status: false,
+      });
+      console.log('❌ Invalid token or Expired Token');
+    }
   };
   return (
-    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 border border-gray-700 m-10">
-      <div className="flex flex-col items-center mb-6 ">
-        <h2 className="text-xl font-semibold text-gray-100">LOGIN AS CEO</h2>
+    <div className="flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 border border-gray-700 m-1">
+      <div className="flex flex-col [&>*:not(:last-child)]:mb-4">
+        <h2 className="text-xl font-semibold text-gray-100 text-center">
+          LOGIN AS CEO
+        </h2>
         <form onSubmit={handleSubmit} className="flex gap-2 mt-3">
           <div className="relative">
             <input
@@ -26,6 +46,7 @@ const Form = () => {
               onChange={(e) => setFormData(e.target.value)}
             />
           </div>
+
           <button
             className="bg-gradient-to-r from-blue-600 to-indigo-700
                 text-white font-medium py-2 px-6 rounded-lg
@@ -44,6 +65,19 @@ const Form = () => {
             Submit
           </button>
         </form>
+        {message?.status === true && (
+          <div className="border border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-4 py-3 rounded-lg mb-4 flex items-center gap-2 animate-fade-in shadow-lg shadow-emerald-500/10">
+            <ThumbUpIcon className="w-5 h-5" />
+            {message.message}
+          </div>
+        )}
+
+        {message?.status === false && (
+          <div className="border border-rose-500/30 bg-rose-500/10 text-rose-600 dark:text-rose-400 px-4 py-3 rounded-lg mb-4 flex items-center gap-2 animate-fade-in shadow-lg shadow-rose-500/10">
+            <CloseIcon className="w-5 h-5" />
+            {message.message}
+          </div>
+        )}
       </div>
     </div>
   );
