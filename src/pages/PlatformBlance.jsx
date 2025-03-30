@@ -11,6 +11,7 @@ import { useCustomContext } from '../Context/CustomContext';
 import { BsStripe } from 'react-icons/bs';
 import { SiBinance } from 'react-icons/si';
 import { TbBrandPaypay } from 'react-icons/tb';
+import { IoMdAlert } from 'react-icons/io';
 
 const PlatformBlance = () => {
   const { data, loading, error } = useCustomContext();
@@ -139,6 +140,35 @@ const PlatformBlance = () => {
             </table>
           </div>
         </Table>
+      </motion.div>
+      <motion.div
+        className="bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 border border-gray-700 mt-5 mx-10 lg:mx-20"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        <div>
+          <div className="flex items-center gap-2 mb-4">
+            <IoMdAlert className="text-red-500 text-xl" />
+            <TableHeading text="Threshold Alert" />
+          </div>
+          <div className='flex flex-col gap-3'>
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-green-500"></span>
+              <p className="text-sm">Green = Balance is healthy</p>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-yellow-500"></span>
+              <p className="text-sm">Yellow = Approaching the threshold</p>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-red-500"></span>
+              <p className="text-sm">Red = Below threshold, requires top-up</p>
+            </div>
+          </div>
+        </div>
       </motion.div>
     </div>
   );
