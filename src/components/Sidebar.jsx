@@ -2,16 +2,8 @@ import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import PaymentIcon from '@mui/icons-material/Payment';
 import { useState } from 'react';
-import {
-  BarChart2,
-  ChartNoAxesCombined,
-  DollarSign,
-  DollarSignIcon,
-  Landmark,
-  LandmarkIcon,
-  Menu,
-  TrendingUp,
-} from 'lucide-react';
+import { CircleDollarSign } from 'lucide-react';
+import { BarChart2, ChartNoAxesCombined, Landmark, Menu } from 'lucide-react';
 import { Link } from 'react-router-dom';
 const SIDEBAR_ITEMS = [
   {
@@ -22,22 +14,22 @@ const SIDEBAR_ITEMS = [
   },
   {
     name: 'Price Data',
-    icon: DollarSignIcon,
+    icon: ChartNoAxesCombined,
     color: '#10b981',
     href: '/PriceData',
   },
   {
-    name: 'Transaction',
+    name: 'Bills & Revenue',
     icon: PaymentIcon,
     color: '#ec3kjoe9',
-    href: '/Transaction',
+    href: '/Billpayment',
   },
 
   {
-    name: 'Daily Revenue',
-    icon: ChartNoAxesCombined,
+    name: 'Assets & Revenue',
+    icon: CircleDollarSign,
     color: '#ec4899',
-    href: '/DailyRevenue',
+    href: '/Asset&Revenue',
   },
 
   {

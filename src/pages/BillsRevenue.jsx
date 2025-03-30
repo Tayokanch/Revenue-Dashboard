@@ -13,7 +13,8 @@ import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import CellWifiIcon from '@mui/icons-material/CellWifi';
 import TableHeading from '../components/Reuse/Table/TableHeading';
 import Table from '../components/Reuse/Table/Table';
-const Transaction = () => {
+import { Gift } from 'lucide-react';
+const BillsRevenue = () => {
   const { data, loading, error } = useCustomContext();
 
   const revenuePerBill = data.totalDailyRevenuePerBillType || [];
@@ -23,7 +24,7 @@ const Transaction = () => {
 
   return (
     <div className="flex-1 overflow-auto relatibe z-20">
-      <Header title="Revenue for Bill Payments" />
+      <Header title="Bill Payment & Revenue" />
       <main className="max-w-8xl mx-auto py-6 px-4 lg:px-8 xl:px-20">
         <motion.div
           className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 mb-8"
@@ -46,7 +47,7 @@ const Transaction = () => {
 
           <StatCard
             name="Total Bill Transactions"
-            icon={BadgeDollarSign}
+            icon={Zap}
             value={`${data.totalTransactionForBillPayment}`}
             color="#3b82f6"
           />
@@ -77,14 +78,13 @@ const Transaction = () => {
                 <tbody className="divide-y divide-gray-700">
                   {revenuePerBill.map((item) => (
                     <motion.tr
-                      key={item.billType} 
+                      key={item.billType}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ duration: 0.3 }}
                     >
                       {headers.map((header) => {
                         if (header === 'billType') {
-                        
                           return (
                             <td
                               key={header}
@@ -97,7 +97,7 @@ const Transaction = () => {
                               ) : item.billType
                                   .toLowerCase()
                                   .includes('gift card') ? (
-                                <CardGiftcardIcon className="text-[#F7931A]" />
+                                <Gift className="text-[#F7931A]" />
                               ) : null}
                               {item[header]}
                             </td>
@@ -149,4 +149,4 @@ const Transaction = () => {
   );
 };
 
-export default Transaction;
+export default BillsRevenue;
