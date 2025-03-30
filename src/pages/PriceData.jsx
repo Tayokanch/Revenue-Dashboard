@@ -7,6 +7,7 @@ import StatCard from '../components/Reuse/StatCard';
 import { color, motion } from 'framer-motion';
 import { useCustomContext } from '../Context/CustomContext';
 import PriceDataTable from './PriceDataTable';
+import Form from './Form';
 const Price = {
   BTC: 84206.27,
   ETH: 1982.79,
@@ -53,6 +54,7 @@ const PriceData = () => {
           setSearchTerm={setSearchTerm}
         />
       </main>
+      <Form/>
     </div>
   );
 };

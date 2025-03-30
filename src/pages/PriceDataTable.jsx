@@ -84,6 +84,9 @@ const PriceDataTable = ({ data, searchTerm, setSearchTerm }) => {
           </tbody>
         </table>
       </div>
+      <div>
+        
+      </div>
     </motion.div>
   );
 };
