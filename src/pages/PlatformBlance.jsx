@@ -12,6 +12,7 @@ import { SiBinance } from 'react-icons/si';
 import { TbBrandPaypay } from 'react-icons/tb';
 import { IoMdAlert } from 'react-icons/io';
 import venly from '../assets/62f10abd4177a24963a5e034.png';
+import PlatformChart from './PlatformChart';
 
 const PlatformBalance = () => {
   const { data, loading, error } = useCustomContext();
@@ -35,7 +36,7 @@ const PlatformBalance = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <TableHeading text={'Daily Revenue Per Asset'} />
+          <TableHeading text={'Providers Balance & Threshold'} />
           <Table>
             <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-gray-700">
@@ -184,6 +185,7 @@ const PlatformBalance = () => {
             </div>
           </div>
         </motion.div>
+        <PlatformChart  data={data}/>
       </div>
     );
   }
