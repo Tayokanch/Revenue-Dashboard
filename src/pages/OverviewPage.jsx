@@ -8,9 +8,11 @@ import { TbTransactionDollar } from 'react-icons/tb';
 import { BadgeDollarSign } from 'lucide-react';
 import BiaxialBarChart from './BiaxialBarChart';
 import TotalDailyRevenue from './TotalDailyRevenue';
+import { useNavigate } from 'react-router-dom';
 
 const OverviewPage = () => {
   const { data, loading, error } = useCustomContext();
+  const navigate = useNavigate();
 
   return (
     <div className="flex-1 overflow-auto relatibe z-20">
@@ -51,7 +53,10 @@ const OverviewPage = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:lg:grid-cols-[1fr_1.7fr] gap-8">
           <BiaxialBarChart />
-          <TotalDailyRevenue data={data}/>
+          <TotalDailyRevenue
+            data={data}
+            onClick={() => navigate('/Asset&Revenue')}
+          />
         </div>
       </main>
     </div>

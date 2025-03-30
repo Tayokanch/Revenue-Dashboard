@@ -70,7 +70,12 @@ const BillsRevenue = () => {
                         key={header}
                         className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider"
                       >
-                        {header.split(/(?=[A-Z])/).join(' ')}
+                        {header
+                          .split(/(?=[A-Z])/)
+                          .join(' ')
+                          .split(' ')
+                          .slice(0, 3)
+                          .join(' ')}
                       </th>
                     ))}
                   </tr>

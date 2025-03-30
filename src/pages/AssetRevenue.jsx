@@ -16,6 +16,7 @@ import Table from '../components/Reuse/Table/Table';
 import { Bitcoin } from 'lucide-react';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import { Gift } from 'lucide-react';
+import PaymentsIcon from '@mui/icons-material/Payments';
 
 const Asset = () => {
   const { data, loading, error } = useCustomContext();
@@ -47,6 +48,12 @@ const Asset = () => {
             value={`${data.totalRevenueForCryptoPaymentUSD}`}
             color="#10b981"
           />
+          <StatCard
+            name="Total Crypto Payments Processed"
+            icon={PaymentsIcon}
+            value={`${data.totalAmountMadeProcessForCryptolPayment}`}
+            color="#3b82f6"
+          />
 
           <StatCard
             name="Total Crypto Transcation Count"
@@ -56,12 +63,6 @@ const Asset = () => {
           />
         </motion.div>
 
-        <motion.div
-          className="bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 border border-gray-700 mb-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        ></motion.div>
         <TotalDailyRevenue data={data} />
       </main>
     </div>
