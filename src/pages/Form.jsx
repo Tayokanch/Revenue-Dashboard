@@ -3,14 +3,13 @@ import { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { motion } from 'framer-motion';
-const Form = () => {
+const Form = ({message, setMessage}) => {
   const [formData, setFormData] = useState('');
 
   const encode = (data) => btoa(JSON.stringify(data));
   const decode = (token) => JSON.parse(atob(token));
   const payload = { role: 'CEO', email: 'FIATURE.CEO.co.uk' };
   const token = encode(payload);
-  const [message, setMessage] = useState();
 
   useEffect(() => {
     console.log('This is token', token);
