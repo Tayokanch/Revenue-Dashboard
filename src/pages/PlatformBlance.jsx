@@ -11,6 +11,7 @@ import { BsStripe } from 'react-icons/bs';
 import { SiBinance } from 'react-icons/si';
 import { TbBrandPaypay } from 'react-icons/tb';
 import { IoMdAlert } from 'react-icons/io';
+import venly from '../assets/62f10abd4177a24963a5e034.png';
 
 const PlatformBalance = () => {
   const { data, loading, error } = useCustomContext();
@@ -20,8 +21,8 @@ const PlatformBalance = () => {
     platformBalances.length > 0 ? Object.keys(platformBalances[0]) : [];
   const navigate = useNavigate();
 
-  if(!message?.status){
-    return <Form setMessage={setMessage} message={message}/>
+  if (!message?.status) {
+    return <Form setMessage={setMessage} message={message} />;
   }
   if (message?.status) {
     return (
@@ -74,7 +75,12 @@ const PlatformBalance = () => {
                               className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-100 flex gap-2 items-center"
                             >
                               {item.provider.toLowerCase().includes('venly') ? (
-                                <FaBitcoin className="text-[#F7931A]" />
+                                <img
+                                  src={venly}
+                                  loading="lazy"
+                                  alt="Venly Logo"
+                                  className="w-6 h-6"
+                                />
                               ) : item.provider
                                   .toLowerCase()
                                   .includes('repeadly') ? (
@@ -82,11 +88,11 @@ const PlatformBalance = () => {
                               ) : item.provider
                                   .toLowerCase()
                                   .includes('strip') ? (
-                                <BsStripe className="text-[#627EEA]" />
+                                <BsStripe className="text-[#6772e5]" />
                               ) : item.provider
                                   .toLowerCase()
                                   .includes('binance') ? (
-                                <SiBinance className="text-[#00FFA3]" />
+                                <SiBinance className="text-[#f0b90b]" />
                               ) : null}
                               {item[header]}
                             </td>
@@ -148,12 +154,12 @@ const PlatformBalance = () => {
         </motion.div>
 
         <motion.div
-          className="bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 border border-gray-700 mt-5 mx-10 lg:mx-20"
+          className="max-w-[400px] w-full bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 border border-gray-700 mt-5 mx-10 lg:mx-20"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <div>
+          <div className="">
             <div className="flex items-center gap-2 mb-4">
               <IoMdAlert className="text-red-500 text-xl" />
               <TableHeading text="Threshold Alert" />
