@@ -12,7 +12,7 @@
       {
         "asset": "BTC",
         "totalAmountNative": 0.0126,
-        "totalAmountProcessedUSD": 53061.00,
+        "totalAmountProcessedUSD": 53061.0,
         "totalRevenue": {
           "native": 0.000126,
           "usd": 10.61
@@ -22,7 +22,7 @@
       {
         "asset": "ETH",
         "totalAmountNative": 41.01,
-        "totalAmountProcessedUSD": 81061.00,
+        "totalAmountProcessedUSD": 81061.0,
         "totalRevenue": {
           "native": 0.000126,
           "usd": 10.61
@@ -34,57 +34,57 @@
     "totalRevenueForCryptoPaymentUSD": 3400,
     "totalAmountMadeProcessForCryptolPayment": 10.09848,
     "totalTransactionForCryptoPayment": 80,
-    "totalDailyRevenuePerBillType": [
+    "totalDailyRevenuePerCryptoBillType": [
       {
         "CryptoTransactionType": "swap",
-        "totalAmountProcessedUSD": 10000.00,
-        "totalRevenueUSD": 100.00,
+        "totalAmountProcessedUSD": 10000.0,
+        "totalRevenueUSD": 100.0,
         "totalTransactions": 18
       },
       {
         "CryptoTransactionType": "withdraw",
-        "totalAmountProcessedUSD": 50000.00,
-        "totalRevenueUSD": 500.00,
+        "totalAmountProcessedUSD": 50000.0,
+        "totalRevenueUSD": 500.0,
         "totalTransactions": 18
       }
     ],
     "totalRevenueForBillPayment": 10000,
     "totalAmountMadeForBillPayment": 100000,
     "totalTransactionForBillPayment": 50,
-    "totalDailyRevenuePerBillType": [
+    "totalDailyRevenuePerRegularBillType": [
       {
         "billType": "airtime",
-        "totalAmountProcessedUSD": 10000.00,
-        "totalRevenueUSD": 100.00,
+        "totalAmountProcessedUSD": 10000.0,
+        "totalRevenueUSD": 100.0,
         "totalTransactions": 18
       },
       {
         "billType": "Gift Card",
-        "totalAmountProcessedUSD": 50000.00,
-        "totalRevenueUSD": 500.00,
+        "totalAmountProcessedUSD": 50000.0,
+        "totalRevenueUSD": 500.0,
         "totalTransactions": 18
       }
     ],
     "platformBalances": [
       {
         "provider": "Venly",
-        "availableBalance": 78044.50,
-        "threshold": 20000.00
+        "availableBalance": 78044.5,
+        "threshold": 20000.0
       },
       {
         "provider": "Repeadly",
         "availableBalance": 45000.75,
-        "threshold": 15000.00
+        "threshold": 15000.0
       },
       {
         "provider": "Stripe",
-        "availableBalance": 25000.00,
-        "threshold": 10000.00
+        "availableBalance": 25000.0,
+        "threshold": 10000.0
       },
       {
         "provider": "Binance",
         "availableBalance": 0.00939,
-        "threshold": 0.00500
+        "threshold": 0.005
       }
     ]
   }
