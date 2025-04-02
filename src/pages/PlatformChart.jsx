@@ -16,12 +16,12 @@ const PlatformChart = ({ data }) => {
 
   return (
     <motion.div
-      className="bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 border border-gray-700 mt-5 mx-5 sm:mx-10 lg:mx-20 max-w-full lg:max-w-[700px]"
+      className="bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 border border-gray-700 mt-5 mx-5 sm:mx-10 lg:mx-20 max-w-full lg:max-w-[700px] mb-10"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
     >
-      <h2 className="text-lg font-medium mb-4 text-gray-100">
+      <h2 className="text-lg font-medium mb-4 text-gray-100 pb">
         Platform Balance Chart
       </h2>
       <div className="h-80">
@@ -37,37 +37,35 @@ const PlatformChart = ({ data }) => {
               }}
             >
               <CartesianGrid strokeDasharray="3 3" stroke="#4A5568" />
-              <XAxis 
-                dataKey="provider" 
+              <XAxis
+                dataKey="provider"
                 tick={{ fill: '#E2E8F0' }}
                 axisLine={{ stroke: '#4A5568' }}
               />
-              <YAxis 
+              <YAxis
                 tick={{ fill: '#E2E8F0' }}
                 axisLine={{ stroke: '#4A5568' }}
               />
-              <Tooltip 
+              <Tooltip
                 contentStyle={{
                   background: '#2D3748',
                   borderColor: '#4A5568',
                   borderRadius: '0.5rem',
-                  color: '#E2E8F0'
+                  color: '#E2E8F0',
                 }}
               />
               <Legend />
-              
-              {/* Available Balance Bar in green (now comes first) */}
+
               <Bar
                 dataKey="availableBalance"
-                fill="#48BB78" // Green color
+                fill="#48BB78"
                 name="Available Balance"
                 radius={[4, 4, 0, 0]}
               />
-              
-              {/* Threshold Bar in red (now comes second) */}
-              <Bar 
-                dataKey="threshold" 
-                fill="#F56565" // Red color
+
+              <Bar
+                dataKey="threshold"
+                fill="#F56565"
                 name="Threshold"
                 radius={[4, 4, 0, 0]}
               />

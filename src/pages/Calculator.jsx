@@ -24,9 +24,9 @@ function Calculator() {
   };
 
   return (
-    <div className="fixed bottom-10 right-10 flex flex-col items-end z-50">
+    <div className="fixed bottom-10 right-10 flex flex-col items-end z-50 ">
       <button
-        className="bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700"
+        className="bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 cursor-pointer"
         onClick={toggleCalculator}
       >
         <FaCalculator size={24} />
