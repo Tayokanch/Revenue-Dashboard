@@ -51,7 +51,7 @@
     "totalRevenueForBillPayment": 10000,
     "totalAmountMadeForBillPayment": 100000,
     "totalTransactionForBillPayment": 50,
-    "totalDailyRevenuePerRegularBillType": [
+    "totalDailyRevenuePerBillType": [
       {
         "billType": "airtime",
         "totalAmountProcessedUSD": 10000.0,

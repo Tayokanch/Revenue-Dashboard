@@ -17,10 +17,14 @@ import { Gift } from 'lucide-react';
 const BillsRevenue = () => {
   const { data, loading, error } = useCustomContext();
 
-  const revenuePerBill = data.totalDailyRevenuePerBillType || [];
+  const revenuePerBill = data?.totalDailyRevenuePerBillType || [];
+
+  console.log("This is Data", data);
+
+  console.log("This is revenuePerBill", revenuePerBill)
 
   const headers =
-    revenuePerBill.length > 0 ? Object.keys(revenuePerBill[0]) : [];
+    revenuePerBill?.length > 0 ? Object.keys(revenuePerBill[0]) : [];
 
   return (
     <div className="flex-1 overflow-auto relatibe z-20">
@@ -65,7 +69,7 @@ const BillsRevenue = () => {
               <table className="min-w-full divide-y divide-gray-700">
                 <thead>
                   <tr>
-                    {headers.map((header) => (
+                    {headers?.map((header) => (
                       <th
                         key={header}
                         className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider"
