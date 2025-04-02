@@ -4,10 +4,10 @@
 https://github.com/Tayokanch/Revenue-Dashboard
 
 ***Installation & Running the Application***
-npm install - Install dependencies
-npm run dev - Start the React dev server
+* npm install - Install dependencies
+* npm run dev - Start the React dev server
 NOTE - In a separate terminal, launch the mock API server by running the line below
-npm run json-server
+* npm run json-server
 
 
 ***Features***
