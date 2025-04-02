@@ -43,12 +43,7 @@ const OverviewPage = () => {
             value={`${'$' + data.totalDailyAmountProcessedUSD}`}
             color="#3b82f6"
           />
-          <StatCard
-            name="Total Sales"
-            icon={TbTransactionDollar}
-            value="$30,453"
-            color="#6366f1"
-          />
+ 
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:lg:grid-cols-[1fr_1.7fr] gap-8">
