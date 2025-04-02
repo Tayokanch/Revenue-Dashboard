@@ -1,7 +1,7 @@
 ***Financial Data Dashboard Documentation***
 
 ***Clone the Repo***
-git@github.com:Tayokanch/Revenue-Dashboard.git
+https://github.com/Tayokanch/Revenue-Dashboard
 
 ***Installation & Running the Application***
 npm install - Install dependencies
