@@ -4,27 +4,13 @@ import { motion } from 'framer-motion';
 import StatCard from '../components/Reuse/StatCard';
 import { Zap } from 'lucide-react';
 import { useCustomContext } from '../Context/CustomContext';
-import { TbHeading, TbTransactionDollar } from 'react-icons/tb';
-import { BadgeDollarSign } from 'lucide-react';
-import BiaxialBarChart from './BiaxialBarChart';
 import TotalDailyRevenue from './TotalDailyRevenue';
-import PaymentIcon from '@mui/icons-material/Payment';
-import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
-import CellWifiIcon from '@mui/icons-material/CellWifi';
-import TableHeading from '../components/Reuse/Table/TableHeading';
-import Table from '../components/Reuse/Table/Table';
 import { Bitcoin } from 'lucide-react';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-import { Gift } from 'lucide-react';
 import PaymentsIcon from '@mui/icons-material/Payments';
 
 const Asset = () => {
-  const { data, loading, error } = useCustomContext();
-
-  const revenuePerBill = data.totalDailyRevenuePerBillType || [];
-
-  const headers =
-    revenuePerBill.length > 0 ? Object.keys(revenuePerBill[0]) : [];
+  const { data } = useCustomContext();
 
   return (
     <div className="flex-1 overflow-auto relatibe z-20">

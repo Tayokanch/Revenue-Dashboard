@@ -1,14 +1,12 @@
-import React, { PureComponent } from 'react';
+import { React } from 'react';
 import {
   BarChart,
   Bar,
-  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
   Legend,
-  LabelList,
   ResponsiveContainer,
 } from 'recharts';
 
@@ -41,34 +39,33 @@ const BiaxialBarChart = () => {
       </h2>
       <div className="h-80">
         <ResponsiveContainer width="100%" height="100%">
-        <BarChart
-          width={500}
-          height={300}
-          data={data}
-          margin={{
-            top: 20,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis yAxisId="left" orientation="left" stroke="#8884d8" />
-          <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
-          <Tooltip 
-          contentStyle={{
-            backgroundColor: "rgba(31, 41, 52, 0.8)",
-            borderColor: "4b5563",
-            itemStyle: "e5e7eb"
-
-          }}
-           />
-          <Legend />
-          <Bar yAxisId="left" dataKey="usdRevenue" fill="#8884d8" />
-          <Bar yAxisId="right" dataKey="nativeRevenue" fill="#82ca9d" />
-        </BarChart>
-      </ResponsiveContainer>
+          <BarChart
+            width={500}
+            height={300}
+            data={data}
+            margin={{
+              top: 20,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis yAxisId="left" orientation="left" stroke="#8884d8" />
+            <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
+            <Tooltip
+              contentStyle={{
+                backgroundColor: 'rgba(31, 41, 52, 0.8)',
+                borderColor: '4b5563',
+                itemStyle: 'e5e7eb',
+              }}
+            />
+            <Legend />
+            <Bar yAxisId="left" dataKey="usdRevenue" fill="#8884d8" />
+            <Bar yAxisId="right" dataKey="nativeRevenue" fill="#82ca9d" />
+          </BarChart>
+        </ResponsiveContainer>
       </div>
     </motion.div>
   );

@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Reuse/Header';
 import Form from './Form';
 import { motion } from 'framer-motion';
-import { FaBitcoin } from 'react-icons/fa';
 import TableHeading from '../components/Reuse/Table/TableHeading';
 import Table from '../components/Reuse/Table/Table';
 import { useNavigate } from 'react-router-dom';
@@ -15,7 +14,7 @@ import venly from '../assets/62f10abd4177a24963a5e034.png';
 import PlatformChart from './PlatformChart';
 import Calculator from './calculator';
 const PlatformBalance = () => {
-  const { data, loading, error } = useCustomContext();
+  const { data } = useCustomContext();
   const [message, setMessage] = useState(null);
   const platformBalances = data?.platformBalances || [];
   const headers =
@@ -185,8 +184,8 @@ const PlatformBalance = () => {
             </div>
           </div>
         </motion.div>
-        <PlatformChart  data={data}/>
-        <Calculator/>
+        <PlatformChart data={data} />
+        <Calculator />
       </div>
     );
   }

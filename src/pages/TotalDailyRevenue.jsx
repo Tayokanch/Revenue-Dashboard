@@ -5,7 +5,6 @@ import { SiSolana } from 'react-icons/si';
 import TableHeading from '../components/Reuse/Table/TableHeading';
 import Table from '../components/Reuse/Table/Table';
 import { useNavigate } from 'react-router-dom';
-import PlatformChart from './PlatformChart';
 const TotalDailyRevenue = ({ data }) => {
   const revenuePerAsset = data.totalDailyRevenuePerAsset || [];
 

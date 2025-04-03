@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import { motion } from 'framer-motion';
 const Form = ({message, setMessage}) => {
   const [formData, setFormData] = useState('');
 
@@ -10,10 +9,6 @@ const Form = ({message, setMessage}) => {
   const decode = (token) => JSON.parse(atob(token));
   const payload = { role: 'CEO', email: 'FIATURE.CEO.co.uk' };
   const token = encode(payload);
-
-  useEffect(() => {
-    console.log('This is token', token);
-  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,11 +21,10 @@ const Form = ({message, setMessage}) => {
         message: ' Invalid token or Expired Token',
         status: false,
       });
-      console.log('❌ Invalid token or Expired Token');
     }
   };
   return (
-    <div className="flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 border border-gray-700 m-1">
+    <div className="flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 border border-gray-700  ">
       <div className="flex flex-col [&>*:not(:last-child)]:mb-4">
         <h2 className="text-xl font-semibold text-gray-100 text-center">
           LOGIN AS CEO

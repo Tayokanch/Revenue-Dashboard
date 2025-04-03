@@ -4,19 +4,14 @@ import { FaEthereum } from 'react-icons/fa';
 import { SiSolana } from 'react-icons/si';
 import { FaBitcoin } from 'react-icons/fa';
 import StatCard from '../components/Reuse/StatCard';
-import { color, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useCustomContext } from '../Context/CustomContext';
 import PriceDataTable from './PriceDataTable';
-import Form from './Form';
-const Price = {
-  BTC: 84206.27,
-  ETH: 1982.79,
-  SOL: 1789.79,
-};
-const PriceData = () => {
-    const [searchTerm, setSearchTerm] = useState("");
 
-  const { data, loading, error } = useCustomContext();
+const PriceData = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const { data } = useCustomContext();
 
   return (
     <div className="flex-1 overflow-auto relative z-10">
@@ -45,7 +40,6 @@ const PriceData = () => {
             icon={SiSolana}
             value={`${data?.priceData?.SOL}`}
             color="#00FFA3"
-           
           />
         </motion.div>
         <PriceDataTable

@@ -4,24 +4,16 @@ import { motion } from 'framer-motion';
 import StatCard from '../components/Reuse/StatCard';
 import { Zap } from 'lucide-react';
 import { useCustomContext } from '../Context/CustomContext';
-import { TbHeading, TbTransactionDollar } from 'react-icons/tb';
-import { BadgeDollarSign } from 'lucide-react';
-import BiaxialBarChart from './BiaxialBarChart';
-import TotalDailyRevenue from './TotalDailyRevenue';
+import { TbTransactionDollar } from 'react-icons/tb';
 import PaymentIcon from '@mui/icons-material/Payment';
-import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import CellWifiIcon from '@mui/icons-material/CellWifi';
 import TableHeading from '../components/Reuse/Table/TableHeading';
 import Table from '../components/Reuse/Table/Table';
 import { Gift } from 'lucide-react';
 const BillsRevenue = () => {
-  const { data, loading, error } = useCustomContext();
+  const { data} = useCustomContext();
 
   const revenuePerBill = data?.totalDailyRevenuePerBillType || [];
-
-  console.log("This is Data", data);
-
-  console.log("This is revenuePerBill", revenuePerBill)
 
   const headers =
     revenuePerBill?.length > 0 ? Object.keys(revenuePerBill[0]) : [];

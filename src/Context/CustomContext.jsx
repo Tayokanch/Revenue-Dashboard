@@ -12,7 +12,6 @@ export const CustomProvider = ({ children }) => {
       try {
         const response = await axios.get('http://localhost:5000/getFinancialData');
         setData(response.data);
-        console.log(response.data);
       } catch (error) {
         setError(error.message);
       } finally {
