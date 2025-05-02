@@ -9,7 +9,6 @@ const StatCard = ({ name, icon: Icon, value, color, img }) => {
     >
       <div className="px-4 py-5 sm:p-6">
         <span className="flex items-center text-sm font-medium text-gray-400 mb-2">
-          {/* Only render Icon if passed */}
           {Icon && <Icon size={20} className="mr-2" style={{ color }} />}
           {img && <img src={img} alt={name} className="w-5 h-5 mr-2 rounded-full" />}
           {name}

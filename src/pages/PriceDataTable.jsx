@@ -1,39 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Currency, Search } from 'lucide-react';
-import { FaEthereum } from 'react-icons/fa';
-import { SiSolana } from 'react-icons/si';
-import { FaBitcoin } from 'react-icons/fa';
-const PriceDataTable = ({
-  data,
-  searchTerm,
-  setSearchTerm,
-  allCoin,
-  currency,
-}) => {
-  const [filteredProducts, setfilteredProducts] = useState([]);
+import { Search } from 'lucide-react';
+
+const PriceDataTable = ({ searchTerm, setSearchTerm, allCoin, currency }) => {
   const [displayCoin, setDisplayCoin] = useState([]);
 
   useEffect(() => {
     setDisplayCoin(allCoin);
-    console.log('This is all displayCoin', displayCoin);
-
-    console;
-  }, [allCoin, displayCoin]);
-  useEffect(() => {
-    const products = data?.priceData ? Object.entries(data.priceData) : [];
-    setfilteredProducts(products);
-    console.log('this is products', products);
-  }, [data]);
+  }, [allCoin]);
 
   const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+
     const searchInput = e.target.value.toLowerCase();
-    const priceData = data?.priceData || {};
-    const filtered = Object.entries(priceData).filter(([key]) =>
-      key.toLowerCase().includes(searchInput)
+    const filteredCoins = allCoin.filter(
+      (item) =>
+        item?.symbol.toLowerCase().includes(searchTerm) ||
+        item?.name.toLowerCase().includes(searchInput)
     );
-    setSearchTerm(searchInput);
-    setfilteredProducts(filtered);
+
+    setDisplayCoin(filteredCoins);
   };
 
   return (
@@ -79,7 +65,7 @@ const PriceDataTable = ({
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-700">
-            {displayCoin?.slice(0, 13).map((item, key) => (
+            {displayCoin?.slice(0, 15).map((item, key) => (
               <motion.tr
                 key={key}
                 initial={{ opacity: 0 }}

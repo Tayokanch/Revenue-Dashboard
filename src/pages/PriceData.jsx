@@ -33,7 +33,7 @@ const PriceData = () => {
             <StatCard
               key={key}
               name={item?.name}
-              img = {item?.image}
+              img={item?.image}
               value={item?.current_price}
             />
           ))}
