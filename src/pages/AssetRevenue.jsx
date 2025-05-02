@@ -8,13 +8,15 @@ import TotalDailyRevenue from './TotalDailyRevenue';
 import { Bitcoin } from 'lucide-react';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import PaymentsIcon from '@mui/icons-material/Payments';
-
+import Title from '../components/Reuse/Title';
 const Asset = () => {
   const { data } = useCustomContext();
 
   return (
     <div className="flex-1 overflow-auto relatibe z-20">
-      <Header title="ASSET & REVENUE" />
+      <Header>
+        <Title title={"ASSET & REVENUE"}></Title>
+      </Header>
       <main className="max-w-8xl mx-auto py-6 px-4 lg:px-8 xl:px-20">
         <motion.div
           className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 mb-8"

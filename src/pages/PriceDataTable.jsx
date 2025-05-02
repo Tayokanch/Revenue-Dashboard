@@ -31,7 +31,7 @@ const PriceDataTable = ({ data, searchTerm, setSearchTerm }) => {
       transition={{ duration: 1 }}
     >
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-xl font-semibold text-gray-100">Price List</h2>
+        <h2 className="text-xl font-semibold text-gray-100">Crypto Currency</h2>
         <div className="relative">
           <input
             type="text"
@@ -48,10 +48,16 @@ const PriceDataTable = ({ data, searchTerm, setSearchTerm }) => {
           <thead>
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
-                Asset
+                Coins
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
-                Price(USD)
+                Price
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                24H Change
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                Market Cap
               </th>
             </tr>
           </thead>
@@ -84,9 +90,7 @@ const PriceDataTable = ({ data, searchTerm, setSearchTerm }) => {
           </tbody>
         </table>
       </div>
-      <div>
-        
-      </div>
+      <div></div>
     </motion.div>
   );
 };

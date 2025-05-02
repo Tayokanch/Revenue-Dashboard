@@ -9,6 +9,7 @@ import { BadgeDollarSign } from 'lucide-react';
 import BiaxialBarChart from './BiaxialBarChart';
 import TotalDailyRevenue from './TotalDailyRevenue';
 import { useNavigate } from 'react-router-dom';
+import Title from '../components/Reuse/Title';
 
 const OverviewPage = () => {
   const { data, loading, error } = useCustomContext();
@@ -16,7 +17,10 @@ const OverviewPage = () => {
 
   return (
     <div className="flex-1 overflow-auto relative z-20">
-      <Header title="Financial Overview" />
+
+      <Header>
+      <Title title={"Financial Overview"}></Title>
+      </Header>
       <main className="max-w-8xl mx-auto py-6 px-4 lg:px-8 xl:px-20">
         <motion.div
           className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 mb-8"

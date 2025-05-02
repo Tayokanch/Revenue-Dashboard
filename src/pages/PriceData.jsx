@@ -7,15 +7,19 @@ import StatCard from '../components/Reuse/StatCard';
 import { motion } from 'framer-motion';
 import { useCustomContext } from '../Context/CustomContext';
 import PriceDataTable from './PriceDataTable';
-
+import Title from '../components/Reuse/Title';
+import Currency from '../components/Reuse/Currency';
 const PriceData = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const { data } = useCustomContext();
+  const { data, allCoin } = useCustomContext();
 
   return (
     <div className="flex-1 overflow-auto relative z-10">
-      <Header title="Price Data" />
+      <Header>
+        <Title title={'Price Data'}></Title>
+        <Currency />
+      </Header>
       <main className="max-w 7xl mx-auto py-6 px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,6 +48,7 @@ const PriceData = () => {
         </motion.div>
         <PriceDataTable
           data={data}
+          allCoin = {allCoin}
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
         />

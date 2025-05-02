@@ -9,9 +9,10 @@ import PaymentIcon from '@mui/icons-material/Payment';
 import CellWifiIcon from '@mui/icons-material/CellWifi';
 import TableHeading from '../components/Reuse/Table/TableHeading';
 import Table from '../components/Reuse/Table/Table';
+import Title from '../components/Reuse/Title';
 import { Gift } from 'lucide-react';
 const BillsRevenue = () => {
-  const { data} = useCustomContext();
+  const { data } = useCustomContext();
 
   const revenuePerBill = data?.totalDailyRevenuePerBillType || [];
 
@@ -20,7 +21,9 @@ const BillsRevenue = () => {
 
   return (
     <div className="flex-1 overflow-auto relatibe z-20">
-      <Header title="Bill Payment & Revenue" />
+      <Header>
+        <Title title={'Bill Payment & Revenue'}></Title>
+      </Header>
       <main className="max-w-8xl mx-auto py-6 px-4 lg:px-8 xl:px-20">
         <motion.div
           className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 mb-8"
