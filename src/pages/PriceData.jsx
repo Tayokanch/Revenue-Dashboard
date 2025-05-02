@@ -12,8 +12,10 @@ import Currency from '../components/Reuse/Currency';
 const PriceData = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const { data, allCoin } = useCustomContext();
-
+  const { data, allCoin, currency } = useCustomContext();
+  const selectedCoins = allCoin.filter((coin) =>
+    ['btc', 'eth', 'sol'].includes(coin.symbol.toLowerCase())
+  );
   return (
     <div className="flex-1 overflow-auto relative z-10">
       <Header>
@@ -27,30 +29,21 @@ const PriceData = () => {
           transition={{ duration: 1 }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 mb-8"
         >
-          <StatCard
-            name={`BTC`}
-            icon={FaBitcoin}
-            value={`${data?.priceData?.BTC}`}
-            color="#F7931A"
-          />
-          <StatCard
-            name={`ETH`}
-            icon={FaEthereum}
-            value={`${data?.priceData?.ETH}`}
-            color="#627EEA"
-          />
-          <StatCard
-            name={`SOL`}
-            icon={SiSolana}
-            value={`${data?.priceData?.SOL}`}
-            color="#00FFA3"
-          />
+          {selectedCoins.map((item, key) => (
+            <StatCard
+              key={key}
+              name={item?.name}
+              img = {item?.image}
+              value={item?.current_price}
+            />
+          ))}
         </motion.div>
         <PriceDataTable
           data={data}
-          allCoin = {allCoin}
+          allCoin={allCoin}
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
+          currency={currency}
         />
       </main>
     </div>

@@ -1,12 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Search } from 'lucide-react';
+import { Currency, Search } from 'lucide-react';
 import { FaEthereum } from 'react-icons/fa';
 import { SiSolana } from 'react-icons/si';
 import { FaBitcoin } from 'react-icons/fa';
-const PriceDataTable = ({ data, searchTerm, setSearchTerm }) => {
+const PriceDataTable = ({
+  data,
+  searchTerm,
+  setSearchTerm,
+  allCoin,
+  currency,
+}) => {
   const [filteredProducts, setfilteredProducts] = useState([]);
+  const [displayCoin, setDisplayCoin] = useState([]);
 
+  useEffect(() => {
+    setDisplayCoin(allCoin);
+    console.log('This is all displayCoin', displayCoin);
+
+    console;
+  }, [allCoin, displayCoin]);
   useEffect(() => {
     const products = data?.priceData ? Object.entries(data.priceData) : [];
     setfilteredProducts(products);
@@ -48,6 +61,10 @@ const PriceDataTable = ({ data, searchTerm, setSearchTerm }) => {
           <thead>
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                #
+              </th>
+
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                 Coins
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
@@ -62,7 +79,7 @@ const PriceDataTable = ({ data, searchTerm, setSearchTerm }) => {
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-700">
-            {filteredProducts.map(([key, value]) => (
+            {displayCoin?.slice(0, 13).map((item, key) => (
               <motion.tr
                 key={key}
                 initial={{ opacity: 0 }}
@@ -70,20 +87,30 @@ const PriceDataTable = ({ data, searchTerm, setSearchTerm }) => {
                 transition={{ duration: 0.3 }}
               >
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-100 flex gap-2 items-center">
-                  {key.toLowerCase().includes('bitcoin') ||
-                  key.toLowerCase().includes('btc') ? (
-                    <FaBitcoin className="text-orange-500" />
-                  ) : key.toLowerCase().includes('ethereum') ||
-                    key.toLowerCase().includes('eth') ? (
-                    <FaEthereum className="text-purple-500" />
-                  ) : key.toLowerCase().includes('solana') ||
-                    key.toLowerCase().includes('sol') ? (
-                    <SiSolana className="text-green-500" />
-                  ) : null}
-                  {key}
+                  {item?.market_cap_rank}
                 </td>
+
+                <td className="  gap-2.5 px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+                  <img className="w-8.5" src={item?.image} alt={item?.name} />
+                  <p>{item?.name + '-' + item?.symbol}</p>
+                </td>
+
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
-                  ${value}
+                  {currency?.symbol} {item?.current_price.toLocaleString()}
+                </td>
+
+                <td
+                  className={`px-6 py-4 whitespace-nowrap text-sm ${
+                    Math.floor(item?.price_change_percentage_24h * 100) < 1
+                      ? 'text-red-500'
+                      : 'text-green-500'
+                  }`}
+                >
+                  {Math.floor(item?.price_change_percentage_24h * 100) / 100}
+                </td>
+
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+                  {currency?.symbol} {item?.market_cap.toLocaleString()}
                 </td>
               </motion.tr>
             ))}
