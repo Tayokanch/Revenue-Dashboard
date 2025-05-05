@@ -15,18 +15,7 @@ export const CustomProvider = ({ children }) => {
   console.log("This is data ",data)
 
   useEffect(() => {
-/*     const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          'http://localhost:5000/getFinancialData'
-        );
-        setData(response.data);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    }; */
+
 
     const fetchAllCoin = async () => {
       try {
@@ -48,7 +37,7 @@ export const CustomProvider = ({ children }) => {
     };
 
     fetchAllCoin();
-    //fetchData();
+   
   }, [currency.name]);
 
   return (
