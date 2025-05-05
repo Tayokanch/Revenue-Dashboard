@@ -12,7 +12,7 @@ import { TbBrandPaypay } from 'react-icons/tb';
 import { IoMdAlert } from 'react-icons/io';
 import venly from '../assets/62f10abd4177a24963a5e034.png';
 import PlatformChart from './PlatformChart';
-import Calculator from './calculator';
+
 const PlatformBalance = () => {
   const { data } = useCustomContext();
   const [message, setMessage] = useState(null);
@@ -185,7 +185,7 @@ const PlatformBalance = () => {
           </div>
         </motion.div>
         <PlatformChart data={data} />
-        <Calculator />
+        
       </div>
     );
   }
