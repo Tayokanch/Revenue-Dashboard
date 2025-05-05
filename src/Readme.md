@@ -31,3 +31,6 @@ There is a STICKY CALCULATOR in the Platform Balance section, that allows easy c
 All data is static (simulated via json-server).
 
 CEO access is UI-only for demo purposes (no backend auth).
+
+
+docs.coingecko.com/v3.0.1/reference/coin-id-market-chart

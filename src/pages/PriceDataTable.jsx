@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Search } from 'lucide-react';
-
+import { Link } from 'react-router-dom';
 const PriceDataTable = ({ searchTerm, setSearchTerm, allCoin, currency }) => {
   const [displayCoin, setDisplayCoin] = useState([]);
 
@@ -64,7 +64,7 @@ const PriceDataTable = ({ searchTerm, setSearchTerm, allCoin, currency }) => {
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-700">
+          <tbody className="divide-y divide-gray-700 cursor-pointer">
             {displayCoin?.slice(0, 15).map((item, key) => (
               <motion.tr
                 key={key}
@@ -73,16 +73,31 @@ const PriceDataTable = ({ searchTerm, setSearchTerm, allCoin, currency }) => {
                 transition={{ duration: 0.3 }}
               >
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-100 flex gap-2 items-center">
-                  {item?.market_cap_rank}
+                  <Link
+                    to={`/coin/${item?.id}`}
+                    className="flex items-center gap-2 w-full h-full"
+                  >
+                    {item?.market_cap_rank}
+                  </Link>
                 </td>
 
-                <td className="  gap-2.5 px-6 py-4 whitespace-nowrap text-sm text-gray-300">
-                  <img className="w-8.5" src={item?.image} alt={item?.name} />
-                  <p>{item?.name + '-' + item?.symbol}</p>
+                <td className="gap-2.5 px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+                  <Link
+                    to={`/coin/${item?.id}`}
+                    className="flex items-center gap-2 w-full h-full"
+                  >
+                    <img className="w-8.5" src={item?.image} alt={item?.name} />
+                    <p>{item?.name + ' - ' + item?.symbol}</p>
+                  </Link>
                 </td>
 
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
-                  {currency?.symbol} {item?.current_price.toLocaleString()}
+                  <Link
+                    to={`/coin/${item?.id}`}
+                    className="block w-full h-full"
+                  >
+                    {currency?.symbol} {item?.current_price.toLocaleString()}
+                  </Link>
                 </td>
 
                 <td
@@ -92,11 +107,21 @@ const PriceDataTable = ({ searchTerm, setSearchTerm, allCoin, currency }) => {
                       : 'text-green-500'
                   }`}
                 >
-                  {Math.floor(item?.price_change_percentage_24h * 100) / 100}
+                  <Link
+                    to={`/coin/${item?.id}`}
+                    className="block w-full h-full"
+                  >
+                    {Math.floor(item?.price_change_percentage_24h * 100) / 100}
+                  </Link>
                 </td>
 
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
-                  {currency?.symbol} {item?.market_cap.toLocaleString()}
+                  <Link
+                    to={`/coin/${item?.id}`}
+                    className="block w-full h-full"
+                  >
+                    {currency?.symbol} {item?.market_cap.toLocaleString()}
+                  </Link>
                 </td>
               </motion.tr>
             ))}

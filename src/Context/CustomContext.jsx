@@ -40,7 +40,6 @@ export const CustomProvider = ({ children }) => {
           options
         );
         setAllCoin(cryptoData.data);
-        console.log(cryptoData.data);
       } catch (err) {
         console.log(err);
       }

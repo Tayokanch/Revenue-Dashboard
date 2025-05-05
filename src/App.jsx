@@ -7,15 +7,17 @@ import PriceData from './pages/PriceData';
 import BillsRevenue from './pages/BillsRevenue';
 import Asset from './pages/AssetRevenue';
 import PlatformBlance from './pages/PlatformBlance';
+import Coin from './pages/Coin';
 
 function App() {
   return (
     <div className="flex h-screen bg-gray-900 text-gray-100 overflow-hidden">
-      {/* {BG} */}
+      {/* {BG} 
       <div className="fixed inset-0 z-0">
         <div className="absolte inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-80" />
         <div className="absolute inset-0 backdrop-blur-sm" />
       </div>
+      */}
       <Sidebar />
       <CustomProvider>
         <Routes>
@@ -24,6 +26,7 @@ function App() {
           <Route path="/Billpayment" element={<BillsRevenue />} />
           <Route path="/Asset&Revenue" element={<Asset />} />
           <Route path="/PlatformBalance" element={<PlatformBlance />} />
+          <Route path="/coin/:coinId" element={<Coin />} />
         </Routes>
       </CustomProvider>
     </div>
