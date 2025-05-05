@@ -1,9 +1,10 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 const CustomContext = createContext();
+import cryptoCurrencyData from "../../db.json"
 
 export const CustomProvider = ({ children }) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(cryptoCurrencyData.getFinancialData);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [allCoin, setAllCoin] = useState([]);
@@ -11,9 +12,10 @@ export const CustomProvider = ({ children }) => {
     name: 'usd',
     symbol: '$',
   });
+  console.log("This is data ",data)
 
   useEffect(() => {
-    const fetchData = async () => {
+/*     const fetchData = async () => {
       try {
         const response = await axios.get(
           'http://localhost:5000/getFinancialData'
@@ -24,7 +26,7 @@ export const CustomProvider = ({ children }) => {
       } finally {
         setLoading(false);
       }
-    };
+    }; */
 
     const fetchAllCoin = async () => {
       try {
@@ -46,7 +48,7 @@ export const CustomProvider = ({ children }) => {
     };
 
     fetchAllCoin();
-    fetchData();
+    //fetchData();
   }, [currency.name]);
 
   return (

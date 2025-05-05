@@ -15,7 +15,6 @@ const Form = ({message, setMessage}) => {
 
     if (formData.trim() === token) {
       setMessage({ message: ' Access granted!', status: true });
-      console.log('Successful login:', decode(token));
     } else {
       setMessage({
         message: ' Invalid token or Expired Token',
